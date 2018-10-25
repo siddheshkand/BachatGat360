@@ -24,7 +24,7 @@ SECRET_KEY = '$ls4uk)t##vvx^bg)#!p_yn@cy(n+t$#@jn@77peryi$triqi&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['bachatgat360.pythonanywhere.com/', ]
 
 # Application definition
 

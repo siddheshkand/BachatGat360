@@ -8,5 +8,51 @@
 </head>
 <body>
 <h1>Hello</h1>
+
+<main>
+    <div id='main_table'>
+        <label for="tb_1_1">Sum 1 </label><input type="number" class="pad" id="tb_1_1" value="0"><br>
+        <label for="tb_1_2">Sum 2 </label><input type="number" class="pad" id="tb_1_2" value="0"><br>
+        <label for="tb_1_3">Sum 3 </label><input type="number" class="pad" id="tb_1_3" value="0"><br>
+        <label for="tb_1_4">Total </label><input type="number" class="pad" id="tb_1_4" value="" disabled><br>
+    </div>
+    <br>
+    <div id="content">
+        <div id="text-replace"></div>
+        <button id="button">Get Text File</button>
+    </div>
+</main>
+<script src="{% static 'vendor/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script type="text/javascript">
+    document.getElementById('button').addEventListener('click', loadText);
+
+    function loadText() {
+        // Create XHR
+        let xhr = new XMLHttpRequest();
+
+
+        //Open
+        xhr.open('GET', '{% url 'home:json' %}', true);
+
+        //Error
+        xhr.onerror = function () {
+            console.log('Request Error');
+        };
+        //Progress
+        xhr.onprogress = function () {
+            //pass
+        };
+        let user = JSON.constructor(test
+        );
+        xhr.onload = function () {
+            if (this.status === 200) {
+                let user = JSON.parse(this.responseText);
+                $('#text-replace').append(user.first_name + user.contact);
+            }
+        };
+        xhr.send();
+    }
+</script>
 </body>
 </html>
